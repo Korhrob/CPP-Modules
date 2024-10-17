@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rkorhone <rkorhone@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/17 13:53:04 by rkorhone          #+#    #+#             */
+/*   Updated: 2024/10/17 13:53:06 by rkorhone         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 #include <iomanip>
@@ -118,26 +130,38 @@ void	PhoneBook::search()
 	std::cout << "Enter index:" << std::endl;
 	std::getline(std::cin, input);
 
+	if (input.empty())
+	{
+		std::cout << "empty input" << std::endl;
+		return;
+	}
+
 	try {
-		int nb = std::stoi(input);
+		int	nb = std::stoi(input);
+
+		if (nb > __INT_MAX__)
+		{
+			std::cout << "Index out of bounds" << std::endl;
+			return;
+		}
 
 		if (nb >= 0 && (nb < 8 && nb < curIndex)) {
-			// contacts[(nb + curIndex) % 8].print();
-			std::cout << contacts[(nb + curIndex) % 8].first_name << std::endl;
-			std::cout << contacts[(nb + curIndex) % 8].last_name << std::endl;
-			std::cout << contacts[(nb + curIndex) % 8].first_name << std::endl;
-			std::cout << contacts[(nb + curIndex) % 8].first_name << std::endl;
-			std::cout << contacts[(nb + curIndex) % 8].first_name << std::endl;
+			j = (nb + offset) % 8;
+			std::cout << contacts[j].first_name << std::endl;
+			std::cout << contacts[j].last_name << std::endl;
+			std::cout << contacts[j].first_name << std::endl;
+			std::cout << contacts[j].first_name << std::endl;
+			std::cout << contacts[j].first_name << std::endl;
 		} else {
 			std::cout << "Invalid index" << std::endl;
 		}
 	}
 	catch(const std::invalid_argument& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << e.what() << " : invalid argument" << std::endl;
 	}
 	catch(const std::out_of_range& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << e.what() << " : index out of bounds" << std::endl;
 	}
 }

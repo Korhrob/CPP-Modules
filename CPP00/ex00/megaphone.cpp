@@ -1,6 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rkorhone <rkorhone@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/17 13:52:41 by rkorhone          #+#    #+#             */
+/*   Updated: 2024/10/17 13:52:43 by rkorhone         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <iostream>
-#include <algorithm>
 #include <string>
 
 int	main(int argc, char **argv)
@@ -14,7 +24,8 @@ int	main(int argc, char **argv)
 		for (int i = 1; i < argc; i++)
 		{
 			std::string str(argv[i]);
-			std::transform(str.begin(), str.end(), str.begin(), ::toupper);
+			for (int j = 0; j < str.length(); j++)
+				str[j] = std::toupper(str[j]);
 			std::cout << str << std::endl;
 		}
 	}
