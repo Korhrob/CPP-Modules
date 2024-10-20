@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-Zombie *zombieHorde(int N, std::string name)
+Zombie *zombieHorde(int N, const std::string& name)
 {
 	if (N <= 0)
 		return nullptr;

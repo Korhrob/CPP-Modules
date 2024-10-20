@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-HumanB::HumanB(std::string name) : name(name)
+HumanB::HumanB(const std::string& name) : name(name)
 {
 	this->name = name;
 }
