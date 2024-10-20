@@ -22,7 +22,7 @@ void Harl::error(void)
 	std::cout << "ERROR" << std::endl;
 }
 
-void Harl::complain(std::string level)
+void Harl::complain(const std::string& level)
 {
 	for (int i = 0; i < 4; i++)
 	{
@@ -32,5 +32,4 @@ void Harl::complain(std::string level)
 			return;
 		}
 	}
-	std::cout << "Unknown level: " << level << std::endl;
 }

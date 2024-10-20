@@ -1,6 +1,6 @@
+#include "Zombie.hpp"
 #include <iostream>
 #include <string>
-#include "Zombie.hpp"
 
 void Zombie::announce(void)
 {
@@ -26,4 +26,3 @@ void Zombie::setName(std::string name)
 {
 	this->name = name;
 }
-

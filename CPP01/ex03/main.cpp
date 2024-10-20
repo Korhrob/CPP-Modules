@@ -22,6 +22,5 @@ int	main(void)
 		jim.attack();
 	}
 
-
 	return 0;	
 }

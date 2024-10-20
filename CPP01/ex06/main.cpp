@@ -2,8 +2,6 @@
 #include <iostream>
 #include <string>
 
-
-
 int	main(int argc, char **argv)
 {
 	Harl harl;
@@ -32,6 +30,6 @@ int	main(int argc, char **argv)
 	harl.complain("INFO");
 	harl.complain("WARNING");
 	harl.complain("ERROR");
-	harl.complain("UKNOWN");
+
 	return 0;
 }

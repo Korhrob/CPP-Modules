@@ -1,25 +1,35 @@
-
+#include "ScavTrap.hpp"
 #include <string>
 #include <iostream>
-#include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap() : ClapTrap("unnamed", 100, 50, 20)
 {
 	std::cout << "ScavTrap default constructor called" << std::endl;
-	hitPoints = 100;
-	energy = 50;
-	attackDamage = 20;
-};
+}
 
-ScavTrap::ScavTrap(std::string str) : ClapTrap(str, 100, 50, 20)
+ScavTrap::ScavTrap(const std::string& str) : ClapTrap(str, 100, 50, 20)
 {
 	std::cout << "ScavTrap string constructor called" << std::endl;
-};
+}
+
+ScavTrap::ScavTrap(const ScavTrap &src) : ClapTrap(src)
+{
+	std::cout << "ScavTrap copy constructor called" << std::endl;
+}
+
+ScavTrap& ScavTrap::operator= (const ScavTrap &src)
+{
+	if (this == &src)
+		return (*this);
+	ClapTrap::operator=(src);
+	std::cout << "ScavTrap copy assignment operator called" << std::endl;
+	return (*this);
+}
 
 ScavTrap::~ScavTrap()
 {
 	std::cout << "ScavTrap destructor called" << std::endl;
-};
+}
 
 void	ScavTrap::attack(const std::string& target)
 {
@@ -35,18 +45,18 @@ void	ScavTrap::attack(const std::string& target)
 	}
 	std::cout << "ScavTrap " << name << " attacks " << target << ", causing " << attackDamage << " points of damage!" << std::endl;
 	energy--;
-};
+}
 
-void	ScavTrap::takeDamage(uint amount)
+void	ScavTrap::takeDamage(unsigned int amount)
 {
 	if (amount > hitPoints)
 		hitPoints = 0;
 	else
 		hitPoints -= amount;
 	std::cout << "ScavTrap " << name << " took " << amount << " damage." << std::endl;
-};
+}
 
-void	ScavTrap::beRepaired(uint amount)
+void	ScavTrap::beRepaired(unsigned int amount)
 {
 	if (hitPoints <= 0)
 	{
@@ -61,9 +71,9 @@ void	ScavTrap::beRepaired(uint amount)
 	hitPoints += amount;
 	std::cout << "ScavTrap " << name << " repaired itself, recovering " << amount << " health." << std::endl;
 	energy--;
-};
+}
 
 void	ScavTrap::guardGate() const
 {
-	std::cout << "ScavTrap " << name << "is in gate keeper mode." << std::endl;
+	std::cout << "ScavTrap " << name << " is in gate keeper mode." << std::endl;
 }

@@ -1,19 +1,9 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Account.cpp                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rkorhone <rkorhone@student.hive.fi>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/17 13:53:28 by rkorhone          #+#    #+#             */
-/*   Updated: 2024/10/17 13:53:29 by rkorhone         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Account.hpp"
 #include <iostream>
 #include <chrono>
 #include <iomanip>
+
+// diff <(sed 's/^\[[^]]*\] //' file1) <(sed 's/^\[[^]]*\] //' file2)
 
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
@@ -152,7 +142,7 @@ void Account::displayStatus(void) const
 		<< "index:" << this->_accountIndex << ";"
 		<< "amount:" << this->_amount << ";"
 		<< "deposits:" << this->_nbDeposits << ";"
-		<< "withdrawals:" << this->_nbWithdrawals << std::endl;
+		<< "widthdrawals:" << this->_nbWithdrawals << std::endl;
 }
 
 void Account::_displayTimestamp(void)
@@ -161,5 +151,6 @@ void Account::_displayTimestamp(void)
 	std::time_t now_c = std::chrono::system_clock::to_time_t(now);
 	std::tm now_tm = *std::localtime(&now_c);
 
+	//std::cout << "[12341212_245959] ";
 	std::cout << "[" << std::put_time(&now_tm, "%Y%m%d %H%M%S") << "] ";
 }

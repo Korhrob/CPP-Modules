@@ -1,23 +1,43 @@
-
+#include "ClapTrap.hpp"
 #include <string>
 #include <iostream>
-#include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap()
+ClapTrap::ClapTrap() : name("unnamed"), hitPoints(10), energy(10), attackDamage(0)
 {
 	std::cout << "ClapTrap default constructor called" << std::endl;
-};
+}
 
-ClapTrap::ClapTrap(std::string str, unsigned int hitPoints, unsigned int energy, unsigned int attackDamage) : name(str), hitPoints(hitPoints), energy(energy), attackDamage(attackDamage)
+ClapTrap::ClapTrap(const std::string& str) : name(str), hitPoints(10), energy(10), attackDamage(0)
 {
-	std::cout << "ClapTrap constructor called" << std::endl;
+	std::cout << "ClapTrap string constructor called" << std::endl;
 };
 
+ClapTrap::ClapTrap(const std::string& str, unsigned int hp, unsigned int e, unsigned int ad) : name(str), hitPoints(hp), energy(e), attackDamage(ad)
+{
+	std::cout << "ClapTrap string constructor called" << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap &src) : name(src.name), hitPoints(src.hitPoints), energy(src.energy), attackDamage(src.attackDamage)
+{
+	std::cout << "ClapTrap copy constructor called" << std::endl;
+}
+
+ClapTrap& ClapTrap::operator= (const ClapTrap &src)
+{
+	if (this == &src)
+		return (*this);
+	std::cout << "ClapTrap copy assignment operator called" << std::endl;
+	name = src.name;
+	hitPoints = src.hitPoints;
+	energy = src.energy;
+	attackDamage = src.attackDamage;
+	return (*this);
+}
 
 ClapTrap::~ClapTrap()
 {
 	std::cout << "ClapTrap destructor called" << std::endl;
-};
+}
 
 void	ClapTrap::attack(const std::string& target)
 {
@@ -33,7 +53,7 @@ void	ClapTrap::attack(const std::string& target)
 	}
 	std::cout << "ClapTrap " << name << " attacks " << target << ", causing " << attackDamage << " points of damage!" << std::endl;
 	energy--;
-};
+}
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
@@ -42,7 +62,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	else
 		hitPoints -= amount;
 	std::cout << "ClapTrap " << name << " took " << amount << " damage." << std::endl;
-};
+}
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
@@ -59,4 +79,4 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	hitPoints += amount;
 	std::cout << "ClapTrap " << name << " repaired itself, recovering " << amount << " health." << std::endl;
 	energy--;
-};
+}

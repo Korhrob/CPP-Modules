@@ -24,21 +24,19 @@ void Harl::error(void)
 	std::cout << "ERROR" << std::endl;
 }
 
-void Harl::complain(std::string level)
+void Harl::complain(const std::string& level)
 {
 	int	flag = 0;
 
 	for (int i = 0; i < 4; i++)
 	{
-		if (level == levelHandle[i]) // change filter level from int to string(?)
+		if (level == levelHandle[i])
 		{
 			flag = 1;
 			if (i >= filterLevel)
 				(this->*funcHandle[i])();
 		}
 	}
-	if (!flag)
-		std::cout << "Unknown level: " << level << std::endl;
 }
 
 void Harl::setFilterLevel(int i)
@@ -46,7 +44,7 @@ void Harl::setFilterLevel(int i)
 	Harl::filterLevel = i;
 }
 
-std::string Harl::getFilterLevel(int i)
+std::string Harl::getFilterLevel(int i) const
 {
 	return levelHandle[i];
 }

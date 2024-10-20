@@ -2,6 +2,15 @@
 #include <iostream>
 #include <string>
 
+HumanB::HumanB(std::string name) : name(name)
+{
+	this->name = name;
+}
+
+HumanB::~HumanB()
+{
+}
+
 void HumanB::attack()
 {
 	if (weapon.getType().empty())
@@ -13,14 +22,4 @@ void HumanB::attack()
 void HumanB::setWeapon(Weapon weapon)
 {
 	this->weapon = weapon;
-}
-
-HumanB::HumanB(std::string name)
-{
-	this->name = name;
-}
-
-
-HumanB::~HumanB()
-{
 }

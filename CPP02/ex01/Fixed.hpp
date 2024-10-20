@@ -1,3 +1,4 @@
+#pragma once
 
 #include <iostream>
 
@@ -13,7 +14,6 @@ class Fixed {
 		Fixed(const float f);
 		Fixed(const Fixed &copy);
 		Fixed& operator= (const Fixed& copy);
-		std::ostream& operator<< (std::ostream &stream, const Fixed &fixed);
 		~Fixed();
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
@@ -21,3 +21,5 @@ class Fixed {
 		int		toInt(void) const;
 
 };
+
+std::ostream& operator<< (std::ostream &stream, const Fixed &fixed);
