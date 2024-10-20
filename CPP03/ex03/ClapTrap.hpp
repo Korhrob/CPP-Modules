@@ -15,11 +15,11 @@ class	ClapTrap
 
 		ClapTrap();
 		ClapTrap(const std::string name, unsigned int hitPoints, unsigned int energy, unsigned int attackDamage);
-		ClapTrap(const std::string name);
+		ClapTrap(const std::string name) : ClapTrap(name, 10, 50, 20) {}
 		~ClapTrap();
 
-		virutal void	attack(const std::string& target);
-		virutal void	takeDamage(unsigned int amount);
-		virutal void	beRepaired(unsigned int amount);
+		virtual void	attack(const std::string& target);
+		virtual void	takeDamage(unsigned int amount);
+		virtual void	beRepaired(unsigned int amount);
 
 };

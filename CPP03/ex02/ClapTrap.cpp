@@ -13,11 +13,6 @@ ClapTrap::ClapTrap(std::string str, unsigned int hitPoints, unsigned int energy,
 	std::cout << "ClapTrap constructor called" << std::endl;
 };
 
-ClapTrap::ClapTrap(std::string str) : ClapTrap(str, 10, 50, 20)
-{
-	std::cout << "ClapTrap constructor called" << std::endl;
-}
-
 
 ClapTrap::~ClapTrap()
 {

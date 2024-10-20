@@ -1,19 +1,19 @@
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class FragTrap : public ClapTrap
 {
 
 	private:
 
 	public:
 
-		ScavTrap();
-		ScavTrap(std::string name);
-		~ScavTrap();
+		FragTrap();
+		FragTrap(std::string name);
+		~FragTrap();
 
 		void	attack(const std::string& target) override;
 		void	takeDamage(uint amount) override;
 		void	beRepaired(uint amount) override;
-		void	guardGate() const;
+		void	highFivesGuys(void) const ;
 
 }

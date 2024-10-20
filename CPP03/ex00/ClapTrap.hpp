@@ -15,6 +15,7 @@ class	ClapTrap
 
 		ClapTrap();
 		ClapTrap(std::string name);
+		// ORTHODOX CANONICAL; ADD COPY AND COPY ASSIGN TO THIS AND FUTURE CLASS
 		~ClapTrap();
 
 		void	attack(const std::string& target);
